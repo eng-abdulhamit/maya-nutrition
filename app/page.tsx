@@ -303,6 +303,7 @@ export default function Home() {
           <div className="max-w-2xl mx-auto bg-emerald-600/10 p-10 rounded-3xl text-center transition-all duration-700">
             “{t.reviews[review]}”
           </div>
+          
         </section>
 
         {/* FLOATING WHATSAPP */}
