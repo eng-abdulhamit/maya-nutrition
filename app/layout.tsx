@@ -104,6 +104,7 @@ export default function RootLayout({
           hrefLang="x-default"
           href="https://maya-nutrition.vercel.app"
         />
+<meta name="google-site-verification" content="1OYGAgFeMdED07CJNGAoTLIdm5xY7HdyMuAqPwdN8bM" />
 
         <link rel="icon" href="/favicon.ico" />
         <meta name="theme-color" content="#16a34a" />
