@@ -36,10 +36,10 @@ export default function Home() {
       switch: "Türkçe",
 
       stats: [
-        { value: "3+", label: "سنوات خبرة" },
-        { value: "100+", label: "برنامج غذائي" },
-        { value: "99+", label: "مراجع راضٍ" },
-        { value: "150+", label: "حالة ناجحة" },
+        { value: "2+", label: "سنوات خبرة" },
+        { value: "80+", label: "برنامج غذائي" },
+        { value: "80+", label: "مراجع راضٍ" },
+        { value: "80+", label: "حالة ناجحة" },
       ],
 
       servicesTitle: "الخدمات",
@@ -91,10 +91,10 @@ export default function Home() {
       switch: "العربية",
 
       stats: [
-        { value: "3+", label: "Yıllık Deneyim" },
-        { value: "100+", label: "Diyet Programı" },
-        { value: "99+", label: "Memnun Danışan" },
-        { value: "150+", label: "Başarılı Vaka" },
+        { value: "2+", label: "Yıllık Deneyim" },
+        { value: "80+", label: "Diyet Programı" },
+        { value: "80+", label: "Memnun Danışan" },
+        { value: "80+", label: "Başarılı Vaka" },
       ],
 
       servicesTitle: "Hizmetler",
