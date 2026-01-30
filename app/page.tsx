@@ -1,6 +1,6 @@
 "use client";
+
 import { useState, useEffect } from "react";
-import Head from "next/head";
 
 /* WhatsApp SVG Icon */
 const WhatsAppIcon = ({ className = "w-5 h-5" }) => (
@@ -153,187 +153,170 @@ export default function Home() {
   }, [t.reviews.length]);
 
   const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(t.waText)}`;
-  const bg = dark ? "bg-slate-900 text-slate-200" : "bg-emerald-50 text-slate-800";
+
+  const bg = dark
+    ? "bg-slate-900 text-slate-200"
+    : "bg-emerald-50 text-slate-800";
   const card = dark ? "bg-slate-800" : "bg-white";
   const title = dark ? "text-emerald-400" : "text-emerald-700";
 
   return (
-    <>
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "MedicalBusiness",
-              name: t.name,
-              medicalSpecialty: "Nutrition",
-              url: "https://example.com",
-            }),
-          }}
-        />
-      </Head>
-
-      <div dir={t.dir} className={`${bg} min-h-screen transition-colors`}>
-        {/* HEADER */}
-        <header className={`${card} sticky top-0 shadow`}>
-          <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between">
-            <div>
-              <h1 className={`font-bold text-lg ${title}`}>{t.name}</h1>
-              <p className="text-sm opacity-70">{t.title}</p>
-            </div>
-            <div className="flex gap-2">
-              <button onClick={() => setLang(lang === "ar" ? "tr" : "ar")}>
-                {t.switch}
-              </button>
-              <button onClick={() => setDark(!dark)}>
-                {dark ? "☀️" : "🌙"}
-              </button>
-            </div>
+    <div dir={t.dir} className={`${bg} min-h-screen transition-colors`}>
+      {/* HEADER */}
+      <header className={`${card} sticky top-0 shadow`}>
+        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between">
+          <div>
+            <h1 className={`font-bold text-lg ${title}`}>{t.name}</h1>
+            <p className="text-sm opacity-70">{t.title}</p>
           </div>
-        </header>
-
-        {/* HERO */}
-        <section className="text-center py-20 px-6">
-          <a
-            href={waLink}
-            target="_blank"
-            className="inline-flex items-center gap-2 bg-[#25D366] text-white px-7 py-3 rounded-full mb-6 shadow hover:scale-105 transition"
-          >
-            <WhatsAppIcon /> WhatsApp
-          </a>
-          <h2 className={`text-4xl font-bold mb-4 ${title}`}>{t.hero}</h2>
-          <p className="max-w-xl mx-auto opacity-80">{t.desc}</p>
-        </section>
-
-        {/* STATS */}
-        <section className={`${card} py-12`}>
-          <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {t.stats.map((s, i) => (
-              <div
-                key={i}
-                className="bg-emerald-600/10 p-6 rounded-xl hover:-translate-y-1 transition"
-              >
-                <div className={`text-3xl font-bold ${title}`}>{s.value}</div>
-                <div className="text-sm mt-2 opacity-80">{s.label}</div>
-              </div>
-            ))}
+          <div className="flex gap-2">
+            <button onClick={() => setLang(lang === "ar" ? "tr" : "ar")}>
+              {t.switch}
+            </button>
+            <button onClick={() => setDark(!dark)}>
+              {dark ? "☀️" : "🌙"}
+            </button>
           </div>
-        </section>
+        </div>
+      </header>
 
-        {/* SERVICES */}
-        <section className="max-w-5xl mx-auto px-6 py-16">
-          <h3 className={`text-3xl font-bold text-center mb-10 ${title}`}>
-            {t.servicesTitle}
-          </h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            {t.services.map((s, i) => (
-              <div
-                key={i}
-                className={`${card} p-6 rounded-xl shadow hover:-translate-y-1 transition`}
-              >
-                <h4 className={`font-semibold mb-2 ${title}`}>{s.title}</h4>
-                <p className="opacity-80">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <div className="text-center mt-12">
-            <a
-              href={waLink}
-              target="_blank"
-              className="inline-block bg-emerald-600 text-white px-10 py-4 rounded-full text-lg shadow hover:bg-emerald-700 transition"
-            >
-              {t.cta}
-            </a>
-          </div>
-        </section>
-
-        {/* HOW IT WORKS */}
-        <section className={`${card} py-16`}>
-          <h3 className={`text-3xl font-bold text-center mb-10 ${title}`}>
-            {t.howTitle}
-          </h3>
-          <div className="max-w-4xl mx-auto px-6 grid md:grid-cols-3 gap-6 text-center">
-            {t.how.map((h, i) => (
-              <div key={i} className="bg-emerald-600/10 p-6 rounded-xl">
-                {h}
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* TRUST */}
-        <section className="py-16 px-6">
-          <div className="max-w-4xl mx-auto grid md:grid-cols-4 gap-4 text-center">
-            {t.trust.map((b, i) => (
-              <div
-                key={i}
-                className={`${card} p-4 rounded-xl shadow-sm`}
-              >
-                {b}
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section className={`${card} py-16 px-6`}>
-          <h3 className={`text-3xl font-bold text-center mb-10 ${title}`}>
-            {t.faqTitle}
-          </h3>
-          <div className="max-w-3xl mx-auto space-y-4">
-            {t.faq.map((f, i) => (
-              <details key={i} className="bg-emerald-600/10 p-4 rounded-xl">
-                <summary className="cursor-pointer font-semibold">
-                  {f.q}
-                </summary>
-                <p className="mt-2 opacity-80">{f.a}</p>
-              </details>
-            ))}
-          </div>
-        </section>
-
-        {/* REVIEWS */}
-        <section className="py-20 px-6">
-          <h3 className={`text-3xl font-bold text-center mb-10 ${title}`}>
-            {t.reviewsTitle}
-          </h3>
-          <div className="max-w-2xl mx-auto bg-emerald-600/10 p-10 rounded-3xl text-center transition-all duration-700">
-            “{t.reviews[review]}”
-          </div>
-          
-        </section>
-
-        {/* FLOATING WHATSAPP */}
+      {/* HERO */}
+      <section className="text-center py-20 px-6">
         <a
           href={waLink}
           target="_blank"
-          className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-105 transition z-50"
+          aria-label="التواصل عبر واتساب"
+          className="inline-flex items-center gap-2 bg-emerald-700 text-white px-7 py-3 rounded-full mb-6 shadow hover:scale-105 transition"
         >
-          <WhatsAppIcon className="w-6 h-6" />
+          <WhatsAppIcon /> WhatsApp
         </a>
+        <h2 className={`text-4xl font-bold mb-4 ${title}`}>{t.hero}</h2>
+        <p className="max-w-xl mx-auto opacity-80">{t.desc}</p>
+      </section>
 
-        {/* BACK TO TOP */}
-        {showTop && (
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="fixed bottom-24 right-6 bg-emerald-600 text-white p-3 rounded-full shadow"
+      {/* STATS */}
+      <section className={`${card} py-12`}>
+        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          {t.stats.map((s, i) => (
+            <div
+              key={i}
+              className="bg-emerald-600/10 p-6 rounded-xl hover:-translate-y-1 transition"
+            >
+              <div className={`text-3xl font-bold ${title}`}>{s.value}</div>
+              <div className="text-sm mt-2 opacity-80">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section className="max-w-5xl mx-auto px-6 py-16">
+        <h3 className={`text-3xl font-bold text-center mb-10 ${title}`}>
+          {t.servicesTitle}
+        </h3>
+        <div className="grid md:grid-cols-2 gap-6">
+          {t.services.map((s, i) => (
+            <div
+              key={i}
+              className={`${card} p-6 rounded-xl shadow hover:-translate-y-1 transition`}
+            >
+              <h4 className={`font-semibold mb-2 ${title}`}>{s.title}</h4>
+              <p className="opacity-80">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <a
+            href={waLink}
+            target="_blank"
+            aria-label="التواصل عبر واتساب"
+            className="inline-block bg-emerald-600 text-white px-10 py-4 rounded-full text-lg shadow hover:bg-emerald-700 transition"
           >
-            ⬆️
-          </button>
-        )}
+            {t.cta}
+          </a>
+        </div>
+      </section>
 
-        <footer className="bg-emerald-700 text-white text-center py-4">
-          {t.footer}
-        </footer>
+      {/* HOW */}
+      <section className={`${card} py-16`}>
+        <h3 className={`text-3xl font-bold text-center mb-10 ${title}`}>
+          {t.howTitle}
+        </h3>
+        <div className="max-w-4xl mx-auto px-6 grid md:grid-cols-3 gap-6 text-center">
+          {t.how.map((h, i) => (
+            <div key={i} className="bg-emerald-600/10 p-6 rounded-xl">
+              {h}
+            </div>
+          ))}
+        </div>
+      </section>
 
-        {/* Hidden SEO Text */}
-        <p className="sr-only">
-          أخصائية تغذية أونلاين، برامج غذائية مخصصة، متابعة عبر واتساب، تغذية علاجية
-        </p>
-      </div>
-    </>
+      {/* TRUST */}
+      <section className="py-16 px-6">
+        <div className="max-w-4xl mx-auto grid md:grid-cols-4 gap-4 text-center">
+          {t.trust.map((b, i) => (
+            <div key={i} className={`${card} p-4 rounded-xl shadow-sm`}>
+              {b}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className={`${card} py-16 px-6`}>
+        <h3 className={`text-3xl font-bold text-center mb-10 ${title}`}>
+          {t.faqTitle}
+        </h3>
+        <div className="max-w-3xl mx-auto space-y-4">
+          {t.faq.map((f, i) => (
+            <details key={i} className="bg-emerald-600/10 p-4 rounded-xl">
+              <summary className="cursor-pointer font-semibold">
+                {f.q}
+              </summary>
+              <p className="mt-2 opacity-80">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      {/* REVIEWS */}
+      <section className="py-20 px-6">
+        <h3 className={`text-3xl font-bold text-center mb-10 ${title}`}>
+          {t.reviewsTitle}
+        </h3>
+        <div className="max-w-2xl mx-auto bg-emerald-600/10 p-10 rounded-3xl text-center transition-all duration-700">
+          “{t.reviews[review]}”
+        </div>
+      </section>
+
+      {/* FLOATING WHATSAPP */}
+      <a
+        href={waLink}
+        target="_blank"
+        aria-label="التواصل عبر واتساب"
+        className="fixed bottom-6 right-6 bg-emerald-700 text-white p-4 rounded-full shadow-lg hover:scale-105 transition z-50"
+      >
+        <WhatsAppIcon className="w-6 h-6" />
+      </a>
+
+      {showTop && (
+        <button
+          aria-label="العودة للأعلى"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="fixed bottom-24 right-6 bg-emerald-600 text-white p-3 rounded-full shadow"
+        >
+          ⬆️
+        </button>
+      )}
+
+      <footer className="bg-emerald-700 text-white text-center py-4">
+        {t.footer}
+      </footer>
+
+      <p className="sr-only">
+        أخصائية تغذية أونلاين، برامج غذائية مخصصة، متابعة عبر واتساب، تغذية علاجية
+      </p>
+    </div>
   );
 }
