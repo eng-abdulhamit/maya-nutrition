@@ -20,28 +20,26 @@ const inter = Inter({
 });
 
 /* =======================
-   Global SEO Metadata
+   Global Metadata (SEO)
 ======================= */
 export const metadata: Metadata = {
-  metadataBase: new URL("https://maya-nutrition.vercel.app"), // ✏️ غيّره بعد النشر
+  metadataBase: new URL("https://www.mayasalkini.com"),
 
   title: {
-    default:
-      "د. مايا السلقيني | أخصائية تغذية علاجية – Dyt. Maya Al-Salkini",
+    default: "د. مايا السلقيني | أخصائية تغذية علاجية",
     template: "%s | د. مايا السلقيني",
   },
 
   description:
-    "موقع د. مايا السلقيني، أخصائية تغذية علاجية. استشارات تغذية أونلاين، برامج غذائية مخصصة، متابعة عبر واتساب، وتغذية علاجية مبنية على أسس علمية.",
+    "أخصائية تغذية علاجية أونلاين، برامج غذائية مخصصة، متابعة عبر واتساب، وتغذية علاجية مبنية على أسس علمية.",
 
   keywords: [
     "أخصائية تغذية",
     "تغذية علاجية",
     "أخصائية تغذية أونلاين",
-    "استشارات تغذية واتساب",
+    "استشارات تغذية",
     "Dietitian",
     "Clinical Nutritionist",
-    "Online Dietitian",
     "Diyetisyen",
     "Beslenme Uzmanı",
   ],
@@ -49,12 +47,15 @@ export const metadata: Metadata = {
   authors: [{ name: "Dyt. Maya Al-Salkini" }],
   creator: "Dyt. Maya Al-Salkini",
 
+  icons: {
+    icon: "/favicon.ico",
+  },
+
   openGraph: {
-    title:
-      "د. مايا السلقيني | أخصائية تغذية علاجية – Online Dietitian",
+    title: "د. مايا السلقيني | أخصائية تغذية علاجية",
     description:
-      "Personalized clinical nutrition programs, online consultations, and WhatsApp follow-up.",
-    url: "https://maya-nutrition.vercel.app",
+      "Personalized clinical nutrition programs and online consultations.",
+    url: "https://www.mayasalkini.com",
     siteName: "Dr. Maya Al-Salkini Nutrition",
     images: [
       {
@@ -64,7 +65,7 @@ export const metadata: Metadata = {
         alt: "Clinical Nutritionist Website",
       },
     ],
-    locale: "ar_AR",
+    locale: "ar",
     type: "website",
   },
 
@@ -86,27 +87,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ar" suppressHydrationWarning className="scroll-smooth">
+    <html lang="ar" className="scroll-smooth">
       <head>
-        {/* 🌍 hreflang */}
-        <link
-          rel="alternate"
-          hrefLang="ar"
-          href="https://maya-nutrition.vercel.app"
+        {/* Google Search Console */}
+        <meta
+          name="google-site-verification"
+          content="1OYGAgFeMdED07CJNGAoTLIdm5xY7HdyMuAqPwdN8bM"
         />
+
+        {/* hreflang */}
+        <link rel="alternate" hrefLang="ar" href="https://www.mayasalkini.com" />
         <link
           rel="alternate"
           hrefLang="tr"
-          href="https://maya-nutrition.vercel.app?lang=tr"
+          href="https://www.mayasalkini.com?lang=tr"
         />
         <link
           rel="alternate"
           hrefLang="x-default"
-          href="https://maya-nutrition.vercel.app"
+          href="https://www.mayasalkini.com"
         />
-<meta name="google-site-verification" content="1OYGAgFeMdED07CJNGAoTLIdm5xY7HdyMuAqPwdN8bM" />
 
-        <link rel="icon" href="/favicon.ico" />
         <meta name="theme-color" content="#16a34a" />
       </head>
 
